@@ -4,14 +4,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,8 +20,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
-    EditText edtNewUser,edtNewPassWord,edtNewEmail;  //for Sign Up
-    EditText edtUser,edtPassWord;  //for Sign In
+    EditText edtUser,edtPassWord;  //Cho chức năng đăng nhập
+    EditText edtNewUser,edtNewPassWord,edtNewEmail;  //Cho chức năng đăng ký
+    EditText edtFUser,edtFEmail;  //Cho chức năng tìm lại mật khẩu
+    TextView txtForgot;
     Button btnSignUp,btnSignIn;
     FirebaseDatabase database;
     DatabaseReference users;
@@ -28,53 +31,67 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Firebase
+        //Tham chiếu đến CSDL Firebase
         database = FirebaseDatabase.getInstance();
         users = database.getReference("Users");
+        //Ánh xạ cho chức năng đăng nhập
         edtUser = findViewById(R.id.edtUser_Name);
         edtPassWord = findViewById(R.id.edtPass_Word);
-        edtNewUser = findViewById(R.id.edtUserName);
-        edtNewPassWord = findViewById(R.id.edtPassWord);
-        edtNewEmail = findViewById(R.id.edtEmail);
+        txtForgot = findViewById(R.id.txtForgot);
         btnSignIn = findViewById(R.id.btn_sign_in);
         btnSignUp = findViewById(R.id.btn_sign_up);
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showSignUpDialog();
-            }
-        });
+        //-----
+        //Đăng nhập
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signIn(edtUser.getText().toString(),edtPassWord.getText().toString());
             }
         });
+        //-----
+        //Đăng ký
+        btnSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showSignUpDialog();
+            }
+        });
+        //-----
+        //Tìm lại mật khẩu
+        txtForgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showForgotDialog();
+            }
+        });
+        //-----
     }
 
     private void signIn(final String user, final String pwd) {
         users.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
+            //Xử lý
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.child(user).exists()){
                     if(!user.isEmpty()){
                         User login = dataSnapshot.child(user).getValue(User.class);
                         if(login.getPassword().equals(pwd)){
                             Intent intent = new Intent(MainActivity.this, homeActivity.class);
+                            intent.putExtra("Username",user);
                             startActivity(intent);
                         }
                         else{
-                            Toast.makeText(MainActivity.this, "Wrong Password! ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Sai mật khẩu! ", Toast.LENGTH_SHORT).show();
                         }
                     }
                     else{
-                        Toast.makeText(MainActivity.this, "Please enter your user name ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Hãy nhập tài khoản của bạn ", Toast.LENGTH_SHORT).show();
                     }
                 }
                 else
-                    Toast.makeText(MainActivity.this, "User name is not exists! ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Tài khoản không tồn tại! ", Toast.LENGTH_SHORT).show();
             }
-
+            //-----
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -83,10 +100,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showSignUpDialog() {
+        //Tạo hộp thoại Đăng ký thành viên mới
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
-        alertDialog.setTitle("Sign Up");
+        alertDialog.setTitle("Đăng ký");
         alertDialog.setIcon(R.mipmap.signup);
-        alertDialog.setMessage("Please Fill Full Information");
+        alertDialog.setMessage("Bạn hãy điền đầy đủ thông tin dưới đây!");
         LayoutInflater inflater = this.getLayoutInflater();
         View sign_up_layout = inflater.inflate(R.layout.sign_up_layout,null);
         edtNewUser = sign_up_layout.findViewById(R.id.edtUserName);
@@ -109,10 +127,10 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(dataSnapshot.child(user.getUsername()).exists())
-                            Toast.makeText(MainActivity.this, "User already exists! ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Tài khoản đã tồn tại! ", Toast.LENGTH_SHORT).show();
                         else {
                             users.child(user.getUsername()).setValue(user);
-                            Toast.makeText(MainActivity.this, "User registration success! ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Đăng ký tài khoản thành công! ", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -126,4 +144,61 @@ public class MainActivity extends AppCompatActivity {
         });
         alertDialog.show();
     }
+
+    private void showForgotDialog() {
+        //Tạo hộp thoại tìm lại mật khẩu
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
+        alertDialog.setTitle("Tìm lại mật khẩu");
+        alertDialog.setIcon(R.drawable.forgotpass);
+        alertDialog.setMessage("Bạn hãy điền đầy đủ thông tin dưới đây!");
+        LayoutInflater inflater = this.getLayoutInflater();
+        View find_password = inflater.inflate(R.layout.find_password,null);
+        //------
+        //Ánh xạ cho chức năng tìm lại mật khẩu
+        edtFUser = find_password.findViewById(R.id.edtFUserName);
+        edtFEmail = find_password.findViewById(R.id.edtFEmail);
+        //------
+        alertDialog.setView(find_password);
+        alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        //Xử lý
+        alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                users.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.child(edtFUser.getText().toString()).exists()){
+                            if(!edtFUser.getText().toString().isEmpty()){
+                                User login = dataSnapshot.child(edtFUser.getText().toString()).getValue(User.class);
+                                if(login.getEmail().equals(edtFEmail.getText().toString())){
+                                    Toast.makeText(MainActivity.this,login.getPassword(),Toast.LENGTH_LONG).show();
+                                }
+                                else{
+                                    Toast.makeText(MainActivity.this, "Sai Email! ", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                            else{
+                                Toast.makeText(MainActivity.this, "Hãy nhập tài khoản của bạn! ", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        else
+                            Toast.makeText(MainActivity.this, "Tài khoản không tồn tại! ", Toast.LENGTH_SHORT).show();
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+                dialog.dismiss();
+            }
+        });
+        //-------
+        alertDialog.show();
+    }
+
 }

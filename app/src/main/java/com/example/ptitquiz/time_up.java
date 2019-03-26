@@ -13,6 +13,8 @@ public class time_up extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_up);
         Intent intent = getIntent();
+        final String username = intent.getStringExtra("Username");
+        final String message = intent.getStringExtra("Môn học");
         final String total = intent.getStringExtra("Tổng");
         final String Ca = intent.getStringExtra("Đúng");
         final String sco = intent.getStringExtra("Số điểm");
@@ -21,6 +23,8 @@ public class time_up extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent result = new Intent(time_up.this,result.class);
+                result.putExtra("Username",username);
+                result.putExtra("Môn học",message);
                 result.putExtra("Tổng",total);
                 result.putExtra("Đúng",Ca);
                 result.putExtra("Số điểm",sco);

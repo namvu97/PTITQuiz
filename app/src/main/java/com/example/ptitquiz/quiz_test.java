@@ -18,10 +18,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class quiz_test extends AppCompatActivity {
-    TextView txtQuestion,txtTime,txtPoint;
+    TextView txtQuestion,txtTime,txtScore;
     Button btnAnswer1,btnAnswer2,btnAnswer3,btnAnswer4;
     DatabaseReference reference;
     int index = 1, ca = 0, wa = 0,score=0;
+
     CountDownTimer countDownTimer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +34,19 @@ public class quiz_test extends AppCompatActivity {
     }
 
     private void QuestionQuiz() {
-        if(index>=10){
+        if(index>10){
+            Intent receive = getIntent();
+            String message = receive.getStringExtra("truyendulieu");
+            String username = receive.getStringExtra("Username");
             Intent intent = new Intent(quiz_test.this, result.class);
+            intent.putExtra("Username", username);
+            intent.putExtra("Môn học", message);
             intent.putExtra("Tổng",String.valueOf(index));
             intent.putExtra("Đúng",String.valueOf(ca));
             intent.putExtra("Số điểm",String.valueOf(score));
             startActivity(intent);
         }else{
+            //tham chiếu đến môn học
             Intent intent = getIntent();
             String message = intent.getStringExtra("truyendulieu");
             if(message.equals("Mạng máy tính")) reference = FirebaseDatabase.getInstance().getReference().child("Mmt").child(String.valueOf(index));
@@ -48,8 +55,9 @@ public class quiz_test extends AppCompatActivity {
             if(message.equals("Xác suất thống kê")) reference = FirebaseDatabase.getInstance().getReference().child("Xstk").child(String.valueOf(index));
             if(message.equals("Hệ điều hành Win/Unix/Linux")) reference = FirebaseDatabase.getInstance().getReference().child("Wul").child(String.valueOf(index));
             if(message.equals("Quản lý dự án phần mềm")) reference = FirebaseDatabase.getInstance().getReference().child("Qldapm").child(String.valueOf(index));
+            //------
             index++;
-            txtPoint.setText(String.valueOf(score));
+            txtScore.setText(String.valueOf(score));
             reference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -224,22 +232,18 @@ public class quiz_test extends AppCompatActivity {
                         }
                     });
                 }
-
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
 
                 }
             });
         }
-
-
     }
-
 
     private void Anhxa() {
         txtQuestion = findViewById(R.id.txtQuestion);
         txtTime = findViewById(R.id.txtTime);
-        txtPoint = findViewById(R.id.txtPoint);
+        txtScore = findViewById(R.id.txtScore);
         btnAnswer1 = findViewById(R.id.btnAnswer1);
         btnAnswer2 = findViewById(R.id.btnAnswer2);
         btnAnswer3 = findViewById(R.id.btnAnswer3);
@@ -247,24 +251,30 @@ public class quiz_test extends AppCompatActivity {
     }
 
     public void UpdateCountDown(final int timeLeft){
+        //Timer
         new CountDownTimer(timeLeft*1000+1000, 1000) {
-
             @Override
             public void onTick(long millisUntilFinished) {
                 int minute = (int) (millisUntilFinished / 1000) /60;
                 int seconds = (int) (millisUntilFinished / 1000) %60;
                 txtTime.setText(String.format("%02d:%02d",minute,seconds));
+                if(index>10) cancel();
             }
-
             @Override
             public void onFinish() {
                 txtTime.setText("Hết giờ!");
+                Intent receive = getIntent();
+                String message = receive.getStringExtra("truyendulieu");
+                String username = receive.getStringExtra("Username");
                 Intent intent = new Intent(quiz_test.this,time_up.class);
+                intent.putExtra("Username", username);
+                intent.putExtra("Môn học", message);
                 intent.putExtra("Tổng",String.valueOf(index));
                 intent.putExtra("Đúng",String.valueOf(ca));
                 intent.putExtra("Số điểm",String.valueOf(score));
                 startActivity(intent);
             }
         }.start();
+        //-----
     }
 }
