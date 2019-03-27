@@ -1,4 +1,4 @@
-package com.example.ptitquiz;
+package com.example.ptitquiz.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+
+import com.example.ptitquiz.Model.image;
+import com.example.ptitquiz.R;
 
 import java.util.List;
 

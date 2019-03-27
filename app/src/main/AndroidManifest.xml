@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".time_up"></activity>
-        <activity android:name=".result" />
-        <activity android:name=".quiz_test" />
-        <activity android:name=".homeActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MyAppPTITQuiz.time_up"></activity>
+        <activity android:name=".MyAppPTITQuiz.result" />
+        <activity android:name=".MyAppPTITQuiz.quiz_test" />
+        <activity android:name=".MyAppPTITQuiz.homeActivity" />
+        <activity android:name=".MyAppPTITQuiz.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

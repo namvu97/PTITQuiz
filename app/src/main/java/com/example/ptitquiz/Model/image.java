@@ -1,4 +1,4 @@
-package com.example.ptitquiz;
+package com.example.ptitquiz.Model;
 
 public class image {
     private String Ten;

@@ -1,4 +1,4 @@
-package com.example.ptitquiz;
+package com.example.ptitquiz.MyAppPTITQuiz;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.LinearLayout;
-import android.widget.Toast;
+
+import com.example.ptitquiz.Adapter.HinhAnhAdapter;
+import com.example.ptitquiz.Model.image;
+import com.example.ptitquiz.R;
 
 import java.util.ArrayList;
 
