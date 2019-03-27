@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:background="@drawable/log">
-
     <android.support.constraint.ConstraintLayout
         android:layout_width="300dp"
         android:layout_height="260dp"

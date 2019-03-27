@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".time_up"
     android:background="#3E454F"
     android:orientation="vertical"
-    android:gravity="center">
-    <TextView
-        android:id="@+id/timeUpText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Hết giờ"
-        android:textColor="#FF0000"
-        android:textSize="30sp" />
-    <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@drawable/timer"/>
-    <Button
-        android:id="@+id/btnview_result"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="Xem kết quả"
-        android:background="#8BC34A"/>
-</LinearLayout>
+    android:gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+        <TextView
+            android:id="@+id/timeUpText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Hết giờ"
+            android:textStyle="bold"
+            android:textColor="#FF0000"
+            android:textSize="30sp" />
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/timer"/>
+        <Button
+            android:id="@+id/btnview_result"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Xem kết quả"
+            android:background="#8BC34A"/>
+    </LinearLayout>

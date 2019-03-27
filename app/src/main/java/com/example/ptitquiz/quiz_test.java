@@ -71,13 +71,13 @@ public class quiz_test extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             if(btnAnswer1.getText().toString().equals(question.getAnswer())){
-                                btnAnswer1.setBackgroundColor(Color.GREEN);
+                                btnAnswer1.setBackgroundColor(Color.parseColor("#19D604"));
                                 Handler handler = new Handler();
                                 handler.postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
                                         ca++;
-                                        btnAnswer1.setBackgroundColor(Color.parseColor("#03A9F4"));
+                                        btnAnswer1.setBackgroundColor(Color.parseColor("#00468F"));
                                         score+=10;
                                         QuestionQuiz();
                                     }
@@ -86,22 +86,22 @@ public class quiz_test extends AppCompatActivity {
                             else{
                                 wa++;
                                 if(score>0) score-=5;
-                                btnAnswer1.setBackgroundColor(Color.RED);
+                                btnAnswer1.setBackgroundColor(Color.parseColor("#EC9000"));
                                 if(btnAnswer2.getText().toString().equals(question.getAnswer())){
-                                    btnAnswer2.setBackgroundColor(Color.GREEN);
+                                    btnAnswer2.setBackgroundColor(Color.parseColor("#19D604"));
                                 }else if(btnAnswer3.getText().toString().equals(question.getAnswer())){
-                                    btnAnswer3.setBackgroundColor(Color.GREEN);
+                                    btnAnswer3.setBackgroundColor(Color.parseColor("#19D604"));
                                 }else if(btnAnswer4.getText().toString().equals(question.getAnswer())){
-                                    btnAnswer4.setBackgroundColor(Color.GREEN);
+                                    btnAnswer4.setBackgroundColor(Color.parseColor("#19D604"));
                                 }
                                 Handler handler = new Handler();
                                 handler.postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
-                                        btnAnswer1.setBackgroundColor(Color.parseColor("#03A9F4"));
-                                        btnAnswer2.setBackgroundColor(Color.parseColor("#03A9F4"));
-                                        btnAnswer3.setBackgroundColor(Color.parseColor("#03A9F4"));
-                                        btnAnswer4.setBackgroundColor(Color.parseColor("#03A9F4"));
+                                        btnAnswer1.setBackgroundColor(Color.parseColor("#00468F"));
+                                        btnAnswer2.setBackgroundColor(Color.parseColor("#00468F"));
+                                        btnAnswer3.setBackgroundColor(Color.parseColor("#00468F"));
+                                        btnAnswer4.setBackgroundColor(Color.parseColor("#00468F"));
                                         QuestionQuiz();
                                     }
                                 },1500);
@@ -112,14 +112,14 @@ public class quiz_test extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             if(btnAnswer2.getText().toString().equals(question.getAnswer())){
-                                btnAnswer2.setBackgroundColor(Color.GREEN);
+                                btnAnswer2.setBackgroundColor(Color.parseColor("#19D604"));
                                 Handler handler = new Handler();
                                 handler.postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
                                         ca++;
                                         score+=10;
-                                        btnAnswer2.setBackgroundColor(Color.parseColor("#03A9F4"));
+                                        btnAnswer2.setBackgroundColor(Color.parseColor("#00468F"));
                                         QuestionQuiz();
                                     }
                                 },1500);
@@ -127,22 +127,22 @@ public class quiz_test extends AppCompatActivity {
                             else{
                                 wa++;
                                 if(score>0) score-=5;
-                                btnAnswer2.setBackgroundColor(Color.RED);
+                                btnAnswer2.setBackgroundColor(Color.parseColor("#EC9000"));
                                 if(btnAnswer1.getText().toString().equals(question.getAnswer())){
-                                    btnAnswer1.setBackgroundColor(Color.GREEN);
+                                    btnAnswer1.setBackgroundColor(Color.parseColor("#19D604"));
                                 }else if(btnAnswer3.getText().toString().equals(question.getAnswer())){
-                                    btnAnswer3.setBackgroundColor(Color.GREEN);
+                                    btnAnswer3.setBackgroundColor(Color.parseColor("#19D604"));
                                 }else if(btnAnswer4.getText().toString().equals(question.getAnswer())){
-                                    btnAnswer4.setBackgroundColor(Color.GREEN);
+                                    btnAnswer4.setBackgroundColor(Color.parseColor("#19D604"));
                                 }
                                 Handler handler = new Handler();
                                 handler.postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
-                                        btnAnswer1.setBackgroundColor(Color.parseColor("#03A9F4"));
-                                        btnAnswer2.setBackgroundColor(Color.parseColor("#03A9F4"));
-                                        btnAnswer3.setBackgroundColor(Color.parseColor("#03A9F4"));
-                                        btnAnswer4.setBackgroundColor(Color.parseColor("#03A9F4"));
+                                        btnAnswer1.setBackgroundColor(Color.parseColor("#00468F"));
+                                        btnAnswer2.setBackgroundColor(Color.parseColor("#00468F"));
+                                        btnAnswer3.setBackgroundColor(Color.parseColor("#00468F"));
+                                        btnAnswer4.setBackgroundColor(Color.parseColor("#00468F"));
                                         QuestionQuiz();
                                     }
                                 },1500);
@@ -153,14 +153,14 @@ public class quiz_test extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             if(btnAnswer3.getText().toString().equals(question.getAnswer())){
-                                btnAnswer3.setBackgroundColor(Color.GREEN);
+                                btnAnswer3.setBackgroundColor(Color.parseColor("#19D604"));
                                 Handler handler = new Handler();
                                 handler.postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
                                         ca++;
                                         score+=10;
-                                        btnAnswer3.setBackgroundColor(Color.parseColor("#03A9F4"));
+                                        btnAnswer3.setBackgroundColor(Color.parseColor("#00468F"));
                                         QuestionQuiz();
                                     }
                                 },1500);
@@ -168,22 +168,22 @@ public class quiz_test extends AppCompatActivity {
                             else{
                                 wa++;
                                 if(score>0) score-=5;
-                                btnAnswer3.setBackgroundColor(Color.RED);
+                                btnAnswer3.setBackgroundColor(Color.parseColor("#EC9000"));
                                 if(btnAnswer2.getText().toString().equals(question.getAnswer())){
-                                    btnAnswer2.setBackgroundColor(Color.GREEN);
+                                    btnAnswer2.setBackgroundColor(Color.parseColor("#19D604"));
                                 }else if(btnAnswer1.getText().toString().equals(question.getAnswer())){
-                                    btnAnswer1.setBackgroundColor(Color.GREEN);
+                                    btnAnswer1.setBackgroundColor(Color.parseColor("#19D604"));
                                 }else if(btnAnswer4.getText().toString().equals(question.getAnswer())){
-                                    btnAnswer4.setBackgroundColor(Color.GREEN);
+                                    btnAnswer4.setBackgroundColor(Color.parseColor("#19D604"));
                                 }
                                 Handler handler = new Handler();
                                 handler.postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
-                                        btnAnswer1.setBackgroundColor(Color.parseColor("#03A9F4"));
-                                        btnAnswer2.setBackgroundColor(Color.parseColor("#03A9F4"));
-                                        btnAnswer3.setBackgroundColor(Color.parseColor("#03A9F4"));
-                                        btnAnswer4.setBackgroundColor(Color.parseColor("#03A9F4"));
+                                        btnAnswer1.setBackgroundColor(Color.parseColor("#00468F"));
+                                        btnAnswer2.setBackgroundColor(Color.parseColor("#00468F"));
+                                        btnAnswer3.setBackgroundColor(Color.parseColor("#00468F"));
+                                        btnAnswer4.setBackgroundColor(Color.parseColor("#00468F"));
                                         QuestionQuiz();
                                     }
                                 },1500);
@@ -194,14 +194,14 @@ public class quiz_test extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             if(btnAnswer4.getText().toString().equals(question.getAnswer())){
-                                btnAnswer4.setBackgroundColor(Color.GREEN);
+                                btnAnswer4.setBackgroundColor(Color.parseColor("#19D604"));
                                 Handler handler = new Handler();
                                 handler.postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
                                         ca++;
                                         score+=10;
-                                        btnAnswer4.setBackgroundColor(Color.parseColor("#03A9F4"));
+                                        btnAnswer4.setBackgroundColor(Color.parseColor("#00468F"));
                                         QuestionQuiz();
                                     }
                                 },1500);
@@ -209,22 +209,22 @@ public class quiz_test extends AppCompatActivity {
                             else{
                                 wa++;
                                 if(score>0) score-=5;
-                                btnAnswer4.setBackgroundColor(Color.RED);
+                                btnAnswer4.setBackgroundColor(Color.parseColor("#EC9000"));
                                 if(btnAnswer2.getText().toString().equals(question.getAnswer())){
-                                    btnAnswer2.setBackgroundColor(Color.GREEN);
+                                    btnAnswer2.setBackgroundColor(Color.parseColor("#19D604"));
                                 }else if(btnAnswer3.getText().toString().equals(question.getAnswer())){
-                                    btnAnswer3.setBackgroundColor(Color.GREEN);
+                                    btnAnswer3.setBackgroundColor(Color.parseColor("#19D604"));
                                 }else if(btnAnswer1.getText().toString().equals(question.getAnswer())){
-                                    btnAnswer1.setBackgroundColor(Color.GREEN);
+                                    btnAnswer1.setBackgroundColor(Color.parseColor("#19D604"));
                                 }
                                 Handler handler = new Handler();
                                 handler.postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
-                                        btnAnswer1.setBackgroundColor(Color.parseColor("#03A9F4"));
-                                        btnAnswer2.setBackgroundColor(Color.parseColor("#03A9F4"));
-                                        btnAnswer3.setBackgroundColor(Color.parseColor("#03A9F4"));
-                                        btnAnswer4.setBackgroundColor(Color.parseColor("#03A9F4"));
+                                        btnAnswer1.setBackgroundColor(Color.parseColor("#00468F"));
+                                        btnAnswer2.setBackgroundColor(Color.parseColor("#00468F"));
+                                        btnAnswer3.setBackgroundColor(Color.parseColor("#00468F"));
+                                        btnAnswer4.setBackgroundColor(Color.parseColor("#00468F"));
                                         QuestionQuiz();
                                     }
                                 },1500);
