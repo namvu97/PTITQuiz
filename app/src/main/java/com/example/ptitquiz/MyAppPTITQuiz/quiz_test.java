@@ -83,7 +83,7 @@ public class quiz_test extends AppCompatActivity {
                                         score+=10;
                                         QuestionQuiz();
                                     }
-                                },1500);
+                                },1000);
                             }
                             else{
                                 wa++;
@@ -106,7 +106,7 @@ public class quiz_test extends AppCompatActivity {
                                         btnAnswer4.setBackgroundColor(Color.parseColor("#00468F"));
                                         QuestionQuiz();
                                     }
-                                },1500);
+                                },1000);
                             }
                         }
                     });
@@ -124,7 +124,7 @@ public class quiz_test extends AppCompatActivity {
                                         btnAnswer2.setBackgroundColor(Color.parseColor("#00468F"));
                                         QuestionQuiz();
                                     }
-                                },1500);
+                                },1000);
                             }
                             else{
                                 wa++;
@@ -147,7 +147,7 @@ public class quiz_test extends AppCompatActivity {
                                         btnAnswer4.setBackgroundColor(Color.parseColor("#00468F"));
                                         QuestionQuiz();
                                     }
-                                },1500);
+                                },1000);
                             }
                         }
                     });
@@ -165,7 +165,7 @@ public class quiz_test extends AppCompatActivity {
                                         btnAnswer3.setBackgroundColor(Color.parseColor("#00468F"));
                                         QuestionQuiz();
                                     }
-                                },1500);
+                                },1000);
                             }
                             else{
                                 wa++;
@@ -188,7 +188,7 @@ public class quiz_test extends AppCompatActivity {
                                         btnAnswer4.setBackgroundColor(Color.parseColor("#00468F"));
                                         QuestionQuiz();
                                     }
-                                },1500);
+                                },1000);
                             }
                         }
                     });
@@ -206,7 +206,7 @@ public class quiz_test extends AppCompatActivity {
                                         btnAnswer4.setBackgroundColor(Color.parseColor("#00468F"));
                                         QuestionQuiz();
                                     }
-                                },1500);
+                                },1000);
                             }
                             else{
                                 wa++;
@@ -229,7 +229,7 @@ public class quiz_test extends AppCompatActivity {
                                         btnAnswer4.setBackgroundColor(Color.parseColor("#00468F"));
                                         QuestionQuiz();
                                     }
-                                },1500);
+                                },1000);
                             }
                         }
                     });
