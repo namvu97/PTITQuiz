@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.ptitquiz.Model.image;
 import com.example.ptitquiz.R;
@@ -39,6 +40,7 @@ public class HinhAnhAdapter extends BaseAdapter {
     }
     private class ViewHolder{
         ImageView imgHinh;
+        TextView txtTen;
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -48,13 +50,14 @@ public class HinhAnhAdapter extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(layout,null);
             holder.imgHinh = (ImageView) convertView.findViewById(R.id.imageviewHinhAnh);
+            holder.txtTen = (TextView) convertView.findViewById(R.id.txtTen);
             convertView.setTag(holder);
         }else{
             holder = (ViewHolder) convertView.getTag();
         }
         image image = hinhanhList.get(position);
         holder.imgHinh.setImageResource(image.getHinh());
-
+        holder.txtTen.setText(image.getTen());
         return convertView;
     }
 }

@@ -15,7 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class result extends AppCompatActivity {
-    TextView edtCa,edtScore,edtRank;
+    TextView txtCa,txtScore;
     FirebaseDatabase database;
     DatabaseReference rank;
     @Override
@@ -32,30 +32,29 @@ public class result extends AppCompatActivity {
         String total = intent.getStringExtra("Tổng");
         String Ca = intent.getStringExtra("Đúng");
         String sco = intent.getStringExtra("Số điểm");
-        updateRank(sco, message,username);
-        edtCa.setText(Ca);
-        edtScore.setText(sco);
-        rank.child(message).child(username).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                //edtRank.setText(dataSnapshot.getValue(String.class));
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+//        updateRank(sco, message,username);
+        txtCa.setText(String.format("Số câu đúng : "+Ca+"/10"));
+        txtScore.setText(String.format("Số điểm : "+ sco));
+//        rank.child(message).child(username).addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                //edtRank.setText(dataSnapshot.getValue(String.class));
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
     }
 
-    private void updateRank(String sco, String message, String username) {
-        rank.child(message).child(username).setValue(sco);
-    }
+//    private void updateRank(String sco, String message, String username) {
+//        rank.child(message).child(username).setValue(sco);
+//    }
 
     private void anhxa() {
-        edtCa = findViewById(R.id.edtCa);
-        edtScore = findViewById(R.id.edtScore);
-        edtRank = findViewById(R.id.edtRank);
+        txtCa = findViewById(R.id.txtCa);
+        txtScore = findViewById(R.id.txtScore);
     }
 
     public void Logout(View view) {

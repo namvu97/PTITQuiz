@@ -7,4 +7,9 @@
         android:id="@+id/imageviewHinhAnh"
         android:layout_width="match_parent"
         android:layout_height="150dp" />
+    <TextView
+        android:id="@+id/txtTen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
 </LinearLayout>

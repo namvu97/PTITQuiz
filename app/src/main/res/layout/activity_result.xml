@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="288dp"
-            android:background="#99CC00"
+            android:background="@drawable/wall"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -39,105 +39,59 @@
                     android:id="@+id/txtCa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="150dp"
                     android:gravity="center"
-                    android:text="Số câu đúng:"
+                    android:text="Số câu đúng : 0/20"
                     android:textAlignment="center"
-                    android:textColor="#000"
+                    android:textColor="#FFFFFF"
                     android:textSize="28sp"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
+
 
                 <TextView
-                    android:id="@+id/edtCa"
+                    android:id="@+id/txtScore"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="330dp"
-                    android:layout_marginTop="32dp"
-                    android:hint="0"
-                    android:textSize="27sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/txtPoint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginTop="102dp"
+                    android:layout_marginTop="100dp"
                     android:gravity="center"
-                    android:text="Số điểm: "
+                    android:text="Số điểm : 0"
                     android:textAlignment="center"
-                    android:textColor="#000"
+                    android:textColor="#FFFFFF"
                     android:textSize="28sp"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
 
-                <TextView
-                    android:id="@+id/edtScore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="330dp"
-                    android:layout_marginTop="102dp"
-                    android:hint="0"
-                    android:textSize="27sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/txtRank"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginTop="172dp"
-                    android:gravity="center"
-                    android:text="Xếp hạng: "
-                    android:textAlignment="center"
-                    android:textColor="#000"
-                    android:textSize="28sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/edtRank"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="330dp"
-                    android:layout_marginTop="177dp"
-                    android:hint="0"
-                    android:textSize="27sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
                 <Button
                     android:id="@+id/btnLogout"
-                    android:layout_width="wrap_content"
+                    android:layout_width="140dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="170dp"
                     android:textStyle="bold"
                     android:text="Đăng xuất"
-                    android:layout_marginTop="245dp"
-                    android:layout_marginRight="95dp"
+                    android:layout_marginTop="205dp"
                     android:onClick="Logout"
-                    android:background="#F44336"
+                    android:background="#AD1457"
                     android:textColor="#FFFFFF"
                     />
                 <Button
                     android:id="@+id/btnReturn"
-                    android:layout_width="wrap_content"
+                    android:layout_width="140dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginRight="160dp"
                     android:textStyle="bold"
                     android:text="Trở lại"
-                    android:layout_marginTop="245dp"
-                    android:layout_marginRight="200dp"
+                    android:layout_marginTop="205dp"
                     android:onClick="Return"
-                    android:background="#F44336"
+                    android:background="#AD1457"
                     android:textColor="#FFFFFF"
                     />
         </android.support.constraint.ConstraintLayout>
