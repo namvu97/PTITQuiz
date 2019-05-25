@@ -27,7 +27,7 @@ public class result extends AppCompatActivity {
         rank = database.getReference("Rank");
         anhxa();
         Intent intent = getIntent();
-        String username = intent.getStringExtra("Username");
+//        String username = intent.getStringExtra("Username");
         String message = intent.getStringExtra("Môn học");
         String total = intent.getStringExtra("Tổng");
         String Ca = intent.getStringExtra("Đúng");
@@ -60,10 +60,12 @@ public class result extends AppCompatActivity {
     public void Logout(View view) {
         Intent intent = new Intent(result.this, MainActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
     }
 
     public void Return(View view) {
         Intent intent = new Intent(result.this, homeActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
     }
 }

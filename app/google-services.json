@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "812044022879-f9mdhjtk3fc4t8n9fj48sgqeng5shk2d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ptitquiz",
+            "certificate_hash": "813fdd116acafc6b6f9189ae4b28a13b00b89d07"
+          }
+        },
+        {
           "client_id": "812044022879-qt6ak9ef6if2ekus63a312mgt6r8v710.apps.googleusercontent.com",
           "client_type": 3
         }

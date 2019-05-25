@@ -1,31 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout android:layout_height="match_parent"
-    android:layout_width="match_parent"
+<LinearLayout
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/mainLinear">
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textStyle="bold"
-        android:text="Đăng xuất"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:onClick="Logout"
-        android:background="#F44336"
-        android:textColor="#FFFFFF"
-        />
 
     <GridView
-        android:id="@+id/gridviewHinhAnh"
         android:layout_width="match_parent"
-        android:layout_height="495dp"
-        android:numColumns="3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnLogout"
-        android:layout_margin="10dp"/>
-</android.support.constraint.ConstraintLayout>
+        android:numColumns="2"
+        android:id="@+id/gridviewHinhAnh"
+        android:background="#e7e7e7"
+        android:columnWidth="150dp"
+        android:gravity="center"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp"
+        android:stretchMode="columnWidth"
+        android:layout_height="match_parent">
+    </GridView>
+</LinearLayout>

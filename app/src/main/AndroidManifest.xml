@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ptitquiz">
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logo"
@@ -9,11 +12,41 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyAppPTITQuiz.start_quiz"></activity>
+        <activity android:name=".MyAppPTITQuiz.exam"></activity>
+        <activity
+            android:name=".About"
+            android:parentActivityName=".MyAppPTITQuiz.base" />
+        <activity android:name=".MyAppPTITQuiz.base" />
+        <activity
+            android:name=".MyAppPTITQuiz.CreateSchedule"
+            android:parentActivityName=".MyAppPTITQuiz.Scheduler" />
+        <activity
+            android:name=".MyAppPTITQuiz.Scheduler"
+            android:parentActivityName=".MyAppPTITQuiz.base" />
+        <activity android:name=".MyAppPTITQuiz.review_test" />
+        <activity
+            android:name=".MyAppPTITQuiz.start_review"
+            android:parentActivityName=".MyAppPTITQuiz.selectsubject" />
+        <activity
+            android:name=".MyAppPTITQuiz.selectsubject"
+            android:parentActivityName=".MyAppPTITQuiz.homeActivity" />
+        <activity android:name=".MyAppPTITQuiz.result_review" />
+        <activity android:name=".MyAppPTITQuiz.IntroApp" />
+        <activity
+            android:name=".MyAppPTITQuiz.start_quiz"
+            android:parentActivityName=".MyAppPTITQuiz.selectsubject">
+            <intent-filter>
+                <action android:name="MyFirebaseService" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name=".MyAppPTITQuiz.time_up" />
         <activity android:name=".MyAppPTITQuiz.result" />
         <activity android:name=".MyAppPTITQuiz.quiz_test" />
-        <activity android:name=".MyAppPTITQuiz.homeActivity" />
+        <activity
+            android:name=".MyAppPTITQuiz.homeActivity"
+            android:parentActivityName=".MyAppPTITQuiz.base" />
         <activity android:name=".MyAppPTITQuiz.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +54,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name=".MyAppPTITQuiz.MyAlarm"
+            android:enabled="true"
+            android:exported="true" />
 
         <service android:name=".Notification.MyFirebaseService">
             <intent-filter>
